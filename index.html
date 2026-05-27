@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nextkeyauto.com - New & Used Cars for Sale</title>
+    <meta name="description" content="NextKey Auto – Quality used and new cars. Browse our inventory online.">
+    <style>
+        :root {
+            --red: #e21b26;
+            --dark-red: #c41720;
+            --white: #fff;
+            --black: #1a1a1a;
+            --gray-50: #f9fafb;
+            --gray-100: #f3f4f6;
+            --gray-200: #e5e7eb;
+            --gray-300: #d1d5db;
+            --gray-400: #9ca3af;
+            --gray-500: #6b7280;
+            --gray-600: #4b5563;
+            --gray-700: #374151;
+            --gray-800: #1f2937;
+            --gray-900: #111827;
+            --blue: #2563eb;
+            --green: #16a34a;
+            --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+            --shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.1), 0 4px 10px rgba(0, 0, 0, 0.08);
+            --shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.15);
+            --radius-sm: 6px;
+            --radius: 8px;
+            --radius-lg: 12px;
+            --radius-xl: 16px;
+            --transition: 0.2s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+            background: #f5f5f5;
+            color: var(--gray-900);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .top-bar {
+            background: var(--gray-900);
+            color: #fff;
+            font-size: 0.8rem;
+            padding: 6px 0;
+            text-align: center;
+            letter-spacing: 0.3px;
+        }
+        .top-bar a {
+            color: #fff;
+            text-decoration: underline;
+            font-weight: 500;
+        }
+        .top-bar a:hover {
+            color: #fca5a5;
+        }
+
+        .header {
+            background: var(--white);
+            border-bottom: 1px solid var(--gray-200);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-sm);
+        }
+        .header-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 64px;
+            gap: 20px;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            font-size: 1.7rem;
+            font-weight: 900;
+            color: var(--red);
+            text-decoration: none;
+            letter-spacing: -1px;
+            flex-shrink: 0;
+        }
+        .logo-dot {
+            width: 10px;
+            height: 10px;
+            background: var(--red);
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            list-style: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+        .nav-links a {
+            color: var(--gray-700);
+            text-decoration: none;
+            transition: color var(--transition);
+            white-space: nowrap;
+            padding: 8px 0;
+            position: relative;
+        }
+        .nav-links a:hover {
+            color: var(--red);
+        }
+        .nav-links a.active {
+            color: var(--red);
+            font-weight: 600;
+        }
+        .nav-links a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: var(--red);
+            border-radius: 3px 3px 0 0;
+        }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex-shrink: 0;
+        }
+        .btn {
+            padding: 9px 18px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            border: none;
+            transition: all var(--transition);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--gray-300);
+            color: var(--gray-700);
+        }
+        .btn-outline:hover {
+            border-color: var(--gray-500);
+            background: var(--gray-50);
+        }
+        .btn-red {
+            background: var(--red);
+            color: #fff;
+            border: 2px solid var(--red);
+        }
+        .btn-red:hover {
+            background: var(--dark-red);
+            border-color: var(--dark-red);
+            transform: translateY(-1px);
+            box-shadow: var(--shadow-md);
+        }
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-700);
+            padding: 4px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 30%, #1e1b4b 100%);
+            padding: 48px 20px 56px;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.03) 0%, transparent 70%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+        .hero-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+        .hero h1 {
+            color: #fff;
+            font-size: 2.4rem;
+            font-weight: 800;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+        .hero p {
+            color: #c7d2fe;
+            font-size: 1.1rem;
+            margin-bottom: 28px;
+        }
+        .search-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 4px;
+            margin-bottom: 0;
+            flex-wrap: wrap;
+        }
+        .search-tab {
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #c7d2fe;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.9rem;
+            border-radius: 8px 8px 0 0;
+            transition: all var(--transition);
+            white-space: nowrap;
+        }
+        .search-tab.active {
+            background: #fff;
+            color: var(--gray-900);
+        }
+        .search-tab:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+        .search-box {
+            background: #fff;
+            border-radius: 0 12px 12px 12px;
+            padding: 20px 24px;
+            box-shadow: var(--shadow-xl);
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .search-input-group {
+            flex: 1;
+            min-width: 180px;
+            position: relative;
+        }
+        .search-input-group label {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: var(--gray-500);
+            margin-bottom: 4px;
+        }
+        .search-input-group input,
+        .search-input-group select {
+            width: 100%;
+            padding: 10px 14px;
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            background: var(--gray-50);
+            transition: all var(--transition);
+            font-family: inherit;
+            color: var(--gray-900);
+        }
+        .search-input-group input:focus,
+        .search-input-group select:focus {
+            outline: none;
+            border-color: var(--red);
+            background: #fff;
+            box-shadow: 0 0 0 3px rgba(226, 27, 38, 0.08);
+        }
+        .btn-search {
+            padding: 14px 32px;
+            background: var(--red);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all var(--transition);
+            white-space: nowrap;
+            align-self: flex-end;
+            margin-bottom: 2px;
+        }
+        .btn-search:hover {
+            background: var(--dark-red);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .main-content {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 28px 20px;
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 24px;
+        }
+        .sidebar {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            padding: 20px;
+            box-shadow: var(--shadow);
+            height: fit-content;
+            position: sticky;
+            top: 84px;
+            border: 1px solid var(--gray-100);
+        }
+        .sidebar h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: var(--gray-900);
+        }
+        .filter-group {
+            margin-bottom: 18px;
+            border-bottom: 1px solid var(--gray-100);
+            padding-bottom: 14px;
+        }
+        .filter-group:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        .filter-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.82rem;
+            margin-bottom: 8px;
+            color: var(--gray-700);
+            text-transform: uppercase;
+            letter-spacing: 0.3px;
+        }
+        .filter-group select {
+            width: 100%;
+            padding: 9px 12px;
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            font-size: 0.9rem;
+            background: var(--gray-50);
+            cursor: pointer;
+            font-family: inherit;
+            color: var(--gray-800);
+        }
+        .filter-group select:focus {
+            outline: none;
+            border-color: var(--red);
+            background: #fff;
+        }
+        .price-range {
+            display: flex;
+            gap: 8px;
+        }
+        .price-range input {
+            flex: 1;
+            padding: 8px 10px;
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            font-size: 0.85rem;
+            background: var(--gray-50);
+            font-family: inherit;
+        }
+        .price-range input:focus {
+            outline: none;
+            border-color: var(--red);
+            background: #fff;
+        }
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .checkbox-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            cursor: pointer;
+            color: var(--gray-700);
+        }
+        .checkbox-item input {
+            accent-color: var(--red);
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+        .btn-apply {
+            width: 100%;
+            padding: 11px;
+            background: var(--red);
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all var(--transition);
+            margin-top: 6px;
+        }
+        .btn-apply:hover {
+            background: var(--dark-red);
+        }
+
+        .listings-area {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+        .listings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .listings-header h2 {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--gray-900);
+        }
+        .listings-header span {
+            color: var(--gray-500);
+            font-weight: 400;
+            font-size: 0.9rem;
+        }
+        .sort-select {
+            padding: 9px 14px;
+            border: 2px solid var(--gray-200);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            background: #fff;
+            cursor: pointer;
+            font-family: inherit;
+            font-weight: 500;
+        }
+        .sort-select:focus {
+            outline: none;
+            border-color: var(--red);
+        }
+        .vehicle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 16px;
+        }
+        .vehicle-card {
+            background: #fff;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: all 0.25s ease;
+            cursor: pointer;
+            border: 1px solid transparent;
+            position: relative;
+        }
+        .vehicle-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-lg);
+            border-color: var(--gray-200);
+        }
+        .vehicle-card .card-img {
+            width: 100%;
+            height: 200px;
+            background: #e5e7eb;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+        .card-badge {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: var(--green);
+            color: #fff;
+            font-size: 0.7rem;
+            font-weight: 700;
+            padding: 4px 10px;
+            border-radius: 12px;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        .card-badge.used {
+            background: #f59e0b;
+        }
+        .card-badge.cpo {
+            background: #3b82f6;
+        }
+        .card-body {
+            padding: 16px;
+        }
+        .card-body h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+            color: var(--gray-900);
+            line-height: 1.3;
+        }
+        .card-body .card-year {
+            font-size: 0.8rem;
+            color: var(--gray-500);
+            font-weight: 500;
+        }
+        .card-body .card-price {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--gray-900);
+            margin: 8px 0;
+        }
+        .card-body .card-details {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            font-size: 0.8rem;
+            color: var(--gray-600);
+        }
+        .card-body .card-details span {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+        .card-body .card-dealer {
+            font-size: 0.78rem;
+            color: var(--gray-500);
+            margin-top: 6px;
+            font-weight: 500;
+        }
+        .card-actions {
+            display: flex;
+            gap: 8px;
+            padding: 0 16px 16px;
+        }
+        .card-actions .btn-sm {
+            flex: 1;
+            padding: 8px 12px;
+            font-size: 0.78rem;
+            border-radius: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            border: 2px solid var(--gray-200);
+            background: #fff;
+            text-align: center;
+            transition: all var(--transition);
+            text-decoration: none;
+            color: var(--gray-700);
+        }
+        .card-actions .btn-sm:hover {
+            background: var(--gray-50);
+            border-color: var(--gray-400);
+        }
+        .card-actions .btn-sm.primary {
+            background: var(--red);
+            color: #fff;
+            border-color: var(--red);
+        }
+        .card-actions .btn-sm.primary:hover {
+            background: var(--dark-red);
+            border-color: var(--dark-red);
+        }
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 8px;
+        }
+        .pagination button {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            border: 2px solid var(--gray-200);
+            background: #fff;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 0.85rem;
+            transition: all var(--transition);
+            color: var(--gray-700);
+        }
+        .pagination button.active {
+            background: var(--red);
+            color: #fff;
+            border-color: var(--red);
+        }
+        .pagination button:hover:not(.active) {
+            background: var(--gray-100);
+            border-color: var(--gray-400);
+        }
+
+        .compare-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: #fff;
+            border-top: 3px solid var(--red);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+            padding: 14px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 999;
+            flex-wrap: wrap;
+            gap: 12px;
+            display: none;
+        }
+        .compare-bar.visible {
+            display: flex;
+        }
+        .compare-bar .compare-slots {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        .compare-slot {
+            width: 100px;
+            height: 60px;
+            border: 2px dashed var(--gray-300);
+            border-radius: var(--radius-sm);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+            color: var(--gray-400);
+            text-align: center;
+            transition: all var(--transition);
+            background: var(--gray-50);
+        }
+        .compare-slot.filled {
+            border: 2px solid var(--red);
+            background: #fef2f2;
+            color: var(--red);
+            font-weight: 600;
+            font-size: 0.75rem;
+            cursor: pointer;
+            position: relative;
+        }
+        .compare-slot.filled .remove-compare {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 20px;
+            height: 20px;
+            background: var(--gray-700);
+            color: #fff;
+            border-radius: 50%;
+            border: none;
+            cursor: pointer;
+            font-size: 0.65rem;
+            line-height: 20px;
+            text-align: center;
+            padding: 0;
+        }
+        .btn-compare-go {
+            padding: 12px 28px;
+            background: var(--red);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all var(--transition);
+            white-space: nowrap;
+        }
+        .btn-compare-go:hover {
+            background: var(--dark-red);
+        }
+        .btn-compare-go:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+
+        .footer {
+            background: var(--gray-900);
+            color: #d1d5db;
+            padding: 40px 20px 30px;
+            margin-top: 20px;
+        }
+        .footer-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 30px;
+        }
+        .footer-col h4 {
+            color: #fff;
+            font-size: 0.9rem;
+            font-weight: 700;
+            margin-bottom: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .footer-col a {
+            display: block;
+            color: #9ca3af;
+            text-decoration: none;
+            font-size: 0.85rem;
+            margin-bottom: 8px;
+            transition: color var(--transition);
+        }
+        .footer-col a:hover {
+            color: #fff;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 24px;
+            margin-top: 24px;
+            border-top: 1px solid #374151;
+            font-size: 0.8rem;
+            color: #6b7280;
+            max-width: 1280px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 2000;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            visibility: hidden;
+            transition: visibility 0.3s;
+        }
+        .modal-overlay.active {
+            visibility: visible;
+        }
+        .modal-sheet {
+            background: #fff;
+            border-radius: 20px 20px 0 0;
+            width: 100%;
+            max-width: 600px;
+            max-height: 85vh;
+            padding: 24px;
+            transform: translateY(100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow-y: auto;
+            box-shadow: 0 -10px 30px rgba(0,0,0,0.2);
+        }
+        .modal-overlay.active .modal-sheet {
+            transform: translateY(0);
+        }
+        .modal-sheet h2 {
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .modal-sheet .close-sheet {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--gray-500);
+            padding: 4px;
+        }
+        .form-group {
+            margin-bottom: 16px;
+        }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            font-size: 0.85rem;
+            margin-bottom: 6px;
+            color: var(--gray-700);
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px 14px;
+            border: 2px solid var(--gray-200);
+            border-radius: var(--radius-sm);
+            font-size: 0.95rem;
+            font-family: inherit;
+            background: var(--gray-50);
+            transition: 0.2s;
+        }
+        .form-group input:focus, .form-group textarea:focus {
+            outline: none;
+            border-color: var(--red);
+            background: #fff;
+        }
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+        .btn-send {
+            width: 100%;
+            padding: 14px;
+            background: var(--red);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            margin-top: 8px;
+            transition: background 0.2s;
+        }
+        .btn-send:hover {
+            background: var(--dark-red);
+        }
+
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 220px 1fr;
+                gap: 16px;
+            }
+            .nav-links {
+                gap: 12px;
+                font-size: 0.8rem;
+            }
+        }
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .header-inner {
+                height: 56px;
+                padding: 0 14px;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .hero {
+                padding: 32px 14px 40px;
+            }
+            .search-box {
+                flex-direction: column;
+                border-radius: 12px;
+            }
+            .search-tab {
+                font-size: 0.75rem;
+                padding: 8px 12px;
+            }
+            .btn-search {
+                width: 100%;
+                text-align: center;
+                justify-content: center;
+            }
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 12px;
+                padding: 14px;
+                border-radius: var(--radius);
+            }
+            .sidebar h3 {
+                width: 100%;
+                margin-bottom: 8px;
+            }
+            .filter-group {
+                flex: 1;
+                min-width: 130px;
+                border-bottom: none;
+                padding-bottom: 0;
+                margin-bottom: 0;
+            }
+            .vehicle-grid {
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            }
+            .compare-bar {
+                padding: 10px 14px;
+            }
+            .compare-slot {
+                width: 60px;
+                height: 44px;
+                font-size: 0.6rem;
+            }
+            .btn-compare-go {
+                padding: 10px 18px;
+                font-size: 0.8rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .vehicle-grid {
+                grid-template-columns: 1fr;
+            }
+            .header-actions .btn {
+                padding: 7px 12px;
+                font-size: 0.75rem;
+            }
+            .logo {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        🚗 NextKey Auto – Quality cars, honest deals. <a href="#">Learn more</a>
+    </div>
+
+    <header class="header">
+        <div class="header-inner">
+            <a href="#" class="logo">NextKey<span class="logo-dot"></span>Auto</a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#" class="active">Buy</a></li>
+                    <li><a href="#">Sell</a></li>
+                    <li><a href="#">Research</a></li>
+                    <li><a href="#">Reviews</a></li>
+                    <li><a href="#">Compare</a></li>
+                    <li><a href="#">Financing</a></li>
+                </ul>
+            </nav>
+            <div class="header-actions">
+                <button class="mobile-menu-btn" aria-label="Menu" onclick="toggleMobileMenu()">☰</button>
+                <a href="#" class="btn btn-outline">Sell Your Car</a>
+                <a href="#" class="btn btn-red">Sign In</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <h1>Find Your Next Car at NextKey Auto</h1>
+            <p>Search millions of new and used cars for sale nationwide.</p>
+            <div class="search-tabs">
+                <button class="search-tab active" onclick="switchSearchTab('used', this)">Used Cars</button>
+                <button class="search-tab" onclick="switchSearchTab('new', this)">New Cars</button>
+                <button class="search-tab" onclick="switchSearchTab('cpo', this)">Certified Pre-Owned</button>
+            </div>
+            <div class="search-box">
+                <div class="search-input-group">
+                    <label>Make / Model</label>
+                    <input type="text" id="searchMakeModel" placeholder="e.g. Toyota Camry" oninput="filterVehicles()">
+                </div>
+                <div class="search-input-group">
+                    <label>ZIP Code</label>
+                    <input type="text" id="searchZip" placeholder="e.g. 90210" value="60601">
+                </div>
+                <div class="search-input-group">
+                    <label>Max Price</label>
+                    <select id="searchMaxPrice" onchange="filterVehicles()">
+                        <option value="">Any Price</option>
+                        <option value="15000">$15,000</option>
+                        <option value="25000">$25,000</option>
+                        <option value="35000">$35,000</option>
+                        <option value="50000">$50,000</option>
+                        <option value="75000">$75,000</option>
+                    </select>
+                </div>
+                <button class="btn-search" onclick="filterVehicles()">🔍 Search Cars</button>
+            </div>
+        </div>
+    </section>
+
+    <div class="main-content">
+        <aside class="sidebar">
+            <h3>Refine Results</h3>
+            <div class="filter-group">
+                <label>Body Style</label>
+                <select id="filterBodyStyle" onchange="filterVehicles()">
+                    <option value="">All Styles</option>
+                    <option value="SUV">SUV</option>
+                    <option value="Sedan">Sedan</option>
+                    <option value="Truck">Truck</option>
+                    <option value="Coupe">Coupe</option>
+                    <option value="Convertible">Convertible</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Price Range</label>
+                <div class="price-range">
+                    <input type="number" id="filterPriceMin" placeholder="Min" onchange="filterVehicles()">
+                    <input type="number" id="filterPriceMax" placeholder="Max" onchange="filterVehicles()">
+                </div>
+            </div>
+            <div class="filter-group">
+                <label>Year</label>
+                <select id="filterYear" onchange="filterVehicles()">
+                    <option value="">Any Year</option>
+                    <option value="2024">2024+</option>
+                    <option value="2022">2022+</option>
+                    <option value="2020">2020+</option>
+                    <option value="2018">2018+</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Drivetrain</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox" value="AWD" onchange="filterVehicles()"> All-Wheel Drive</label>
+                    <label class="checkbox-item"><input type="checkbox" value="FWD" onchange="filterVehicles()"> Front-Wheel Drive</label>
+                    <label class="checkbox-item"><input type="checkbox" value="RWD" onchange="filterVehicles()"> Rear-Wheel Drive</label>
+                </div>
+            </div>
+            <div class="filter-group">
+                <label>Fuel Type</label>
+                <div class="checkbox-group">
+                    <label class="checkbox-item"><input type="checkbox" value="Gasoline" onchange="filterVehicles()"> Gasoline</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Hybrid" onchange="filterVehicles()"> Hybrid</label>
+                    <label class="checkbox-item"><input type="checkbox" value="Electric" onchange="filterVehicles()"> Electric</label>
+                </div>
+            </div>
+            <button class="btn-apply" onclick="filterVehicles()">Apply Filters</button>
+        </aside>
+
+        <div class="listings-area">
+            <div class="listings-header">
+                <h2>Vehicles For Sale <span id="resultCount">(0 results)</span></h2>
+                <select class="sort-select" id="sortSelect" onchange="sortVehicles()">
+                    <option value="default">Sort: Best Match</option>
+                    <option value="price-low">Price: Low to High</option>
+                    <option value="price-high">Price: High to Low</option>
+                    <option value="year-new">Year: Newest First</option>
+                    <option value="mileage">Mileage: Low to High</option>
+                </select>
+            </div>
+            <div class="vehicle-grid" id="vehicleGrid"></div>
+            <div class="pagination" id="pagination"></div>
+        </div>
+    </div>
+
+    <div class="compare-bar" id="compareBar">
+        <div style="font-weight:700;color:var(--gray-800);">Compare Vehicles</div>
+        <div class="compare-slots" id="compareSlots">
+            <div class="compare-slot">+ Add</div>
+            <div class="compare-slot">+ Add</div>
+            <div class="compare-slot">+ Add</div>
+        </div>
+        <button class="btn-compare-go" id="btnCompareGo" disabled onclick="openCompareModal()">Compare Now</button>
+    </div>
+
+    <div class="modal-overlay" id="compareModalOverlay">
+        <div class="modal-sheet" style="border-radius:20px; max-width:700px;">
+            <h2>🔍 Vehicle Comparison <button class="close-sheet" onclick="closeCompareModal()">✕</button></h2>
+            <div id="compareContent"><p style="color:var(--gray-500);">Select vehicles to compare side‑by‑side.</p></div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="contactModalOverlay">
+        <div class="modal-sheet">
+            <h2>📞 Contact Seller <button class="close-sheet" onclick="closeContactModal()">✕</button></h2>
+            <form id="contactForm" onsubmit="handleContactSubmit(event)">
+                <div class="form-group">
+                    <label>First Name *</label>
+                    <input type="text" id="firstName" required placeholder="Your first name">
+                </div>
+                <div class="form-group">
+                    <label>Last Name *</label>
+                    <input type="text" id="lastName" required placeholder="Your last name">
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" id="email" required placeholder="you@example.com">
+                </div>
+                <div class="form-group">
+                    <label>Phone Number *</label>
+                    <input type="tel" id="phone" required placeholder="(555) 123-4567">
+                </div>
+                <div class="form-group">
+                    <label>Message (auto‑generated)</label>
+                    <textarea id="message" readonly></textarea>
+                </div>
+                <button type="submit" class="btn-send">Send Message</button>
+            </form>
+            <p style="font-size:0.75rem; color:var(--gray-500); margin-top:10px; text-align:center;">Your inquiry will be sent to the seller via email.</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h4>Buy</h4>
+                <a href="#">Used Cars</a>
+                <a href="#">New Cars</a>
+                <a href="#">Certified Pre-Owned</a>
+                <a href="#">Car Values</a>
+                <a href="#">Financing</a>
+            </div>
+            <div class="footer-col">
+                <h4>Sell</h4>
+                <a href="#">Sell Your Car</a>
+                <a href="#">Instant Offer</a>
+                <a href="#">Dealer Center</a>
+                <a href="#">Trade-In Value</a>
+            </div>
+            <div class="footer-col">
+                <h4>Research</h4>
+                <a href="#">Car Reviews</a>
+                <a href="#">Compare Cars</a>
+                <a href="#">Car Rankings</a>
+                <a href="#">SUV Rankings</a>
+                <a href="#">Electric Cars</a>
+            </div>
+            <div class="footer-col">
+                <h4>Company</h4>
+                <a href="#">About NextKey Auto</a>
+                <a href="#">Careers</a>
+                <a href="#">Press</a>
+                <a href="#">Contact Us</a>
+                <a href="#">Privacy Policy</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2026 NextKey Auto — All rights reserved. Demo site.
+        </div>
+    </footer>
+
+    <script>
+        let allVehicles = [];
+        let currentVehicles = [];
+        let compareList = [];
+        let currentPage = 1;
+        const itemsPerPage = 8;
+        let selectedContactVehicleId = null;
+
+        async function loadVehicles() {
+            try {
+                const res = await fetch('data/cars.json');
+                const data = await res.json();
+                allVehicles = data.map(car => {
+                    car.slug = car.slug || (car.make + '-' + car.model + '-' + car.year).toLowerCase().replace(/\s+/g, '-');
+                    car.id = car.slug;
+                    return car;
+                });
+            } catch (e) {
+                console.error('Failed to load car data', e);
+                allVehicles = [];
+            }
+            currentVehicles = [...allVehicles];
+            renderVehicles(currentVehicles);
+            updateCompareBar();
+        }
+
+        function renderVehicles(vehicles) {
+            const grid = document.getElementById('vehicleGrid');
+            const start = (currentPage - 1) * itemsPerPage;
+            const paginated = vehicles.slice(start, start + itemsPerPage);
+            document.getElementById('resultCount').textContent = `(${vehicles.length} results)`;
+            if (paginated.length === 0) {
+                grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--gray-500);">No vehicles match your criteria.</div>';
+                updatePagination(0);
+                return;
+            }
+            grid.innerHTML = paginated.map(v => {
+                const priceStr = '$' + v.price.toLocaleString();
+                const badgeClass = v.badge === 'new' ? '' : v.badge === 'cpo' ? 'cpo' : 'used';
+                const badgeText = v.badge === 'new' ? 'New' : v.badge === 'cpo' ? 'Certified' : 'Used';
+                const isInCompare = compareList.find(c => c.slug === v.slug);
+                const imgStyle = v.img ? `background-image:url('${v.img}');` : '';
+                return `
+                    <div class="vehicle-card" data-slug="${v.slug}">
+                        <div class="card-img" style="${imgStyle}"></div>
+                        ${badgeText ? `<span class="card-badge ${badgeClass}">${badgeText}</span>` : ''}
+                        <div class="card-body">
+                            <span class="card-year">${v.year}</span>
+                            <h3>${v.make} ${v.model}</h3>
+                            <div class="card-price">${priceStr}</div>
+                            <div class="card-details">
+                                <span>📏 ${v.mileage.toLocaleString()} mi</span>
+                                <span>⚙️ ${v.drivetrain}</span>
+                                <span>⛽ ${v.fuel}</span>
+                            </div>
+                            ${v.dealer ? `<div class="card-dealer">📍 ${v.dealer}</div>` : ''}
+                        </div>
+                        <div class="card-actions">
+                            <button class="btn-sm primary" onclick="event.stopPropagation();openContactModal('${v.slug}')">✔ Check Availability</button>
+                            <button class="btn-sm" onclick="event.stopPropagation();toggleCompare('${v.slug}')" style="${isInCompare ? 'background:#fef2f2;border-color:var(--red);color:var(--red);' : ''}">
+                                ${isInCompare ? '✓ Compared' : '⚖ Compare'}
+                            </button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+            updatePagination(vehicles.length);
+        }
+
+        function updatePagination(total) {
+            const totalPages = Math.ceil(total / itemsPerPage);
+            const pagDiv = document.getElementById('pagination');
+            let html = '';
+            for (let i = 1; i <= Math.min(totalPages, 5); i++) {
+                html += `<button class="${i === currentPage ? 'active' : ''}" onclick="goToPage(${i})">${i}</button>`;
+            }
+            if (totalPages > 5) html += '<button>→</button>';
+            pagDiv.innerHTML = html || '<button class="active">1</button>';
+        }
+
+        function goToPage(page) {
+            currentPage = page;
+            renderVehicles(currentVehicles);
+            window.scrollTo({ top: 400, behavior: 'smooth' });
+        }
+
+        function filterVehicles() {
+            let filtered = [...allVehicles];
+            const searchTerm = document.getElementById('searchMakeModel').value.toLowerCase().trim();
+            const maxPrice = document.getElementById('searchMaxPrice').value;
+            const bodyStyle = document.getElementById('filterBodyStyle').value;
+            const yearFilter = document.getElementById('filterYear').value;
+            const priceMin = document.getElementById('filterPriceMin').value;
+            const priceMax = document.getElementById('filterPriceMax').value;
+            const activeSearchTab = document.querySelector('.search-tab.active')?.textContent.toLowerCase() || 'used';
+
+            if (searchTerm) {
+                filtered = filtered.filter(v =>
+                    `${v.make} ${v.model}`.toLowerCase().includes(searchTerm)
+                );
+            }
+            if (maxPrice) filtered = filtered.filter(v => v.price <= parseInt(maxPrice));
+            if (bodyStyle) filtered = filtered.filter(v => v.body === bodyStyle);
+            if (yearFilter) filtered = filtered.filter(v => v.year >= parseInt(yearFilter));
+            if (priceMin) filtered = filtered.filter(v => v.price >= parseInt(priceMin));
+            if (priceMax) filtered = filtered.filter(v => v.price <= parseInt(priceMax));
+            if (activeSearchTab === 'new cars') filtered = filtered.filter(v => v.badge === 'new');
+            if (activeSearchTab === 'certified pre-owned') filtered = filtered.filter(v => v.badge === 'cpo');
+            if (activeSearchTab === 'used cars') filtered = filtered.filter(v => v.badge === 'used' || v.badge === 'cpo');
+
+            const drivetrainChecks = document.querySelectorAll('.checkbox-group input[type="checkbox"]:checked');
+            const drivetrainValues = Array.from(drivetrainChecks).map(cb => cb.value);
+            if (drivetrainValues.length > 0 && drivetrainValues.some(v => ['AWD', 'FWD', 'RWD'].includes(v))) {
+                filtered = filtered.filter(v => drivetrainValues.includes(v.drivetrain));
+            }
+            const fuelChecks = document.querySelectorAll('.checkbox-group input[type="checkbox"]:checked');
+            const fuelValues = Array.from(fuelChecks).map(cb => cb.value);
+            const fuelFilters = fuelValues.filter(v => ['Gasoline', 'Hybrid', 'Electric'].includes(v));
+            if (fuelFilters.length > 0) {
+                filtered = filtered.filter(v => fuelFilters.includes(v.fuel));
+            }
+
+            currentVehicles = filtered;
+            currentPage = 1;
+            renderVehicles(currentVehicles);
+        }
+
+        function sortVehicles() {
+            const sort = document.getElementById('sortSelect').value;
+            switch (sort) {
+                case 'price-low': currentVehicles.sort((a, b) => a.price - b.price); break;
+                case 'price-high': currentVehicles.sort((a, b) => b.price - a.price); break;
+                case 'year-new': currentVehicles.sort((a, b) => b.year - a.year); break;
+                case 'mileage': currentVehicles.sort((a, b) => a.mileage - b.mileage); break;
+                default: currentVehicles.sort((a, b) => (a.slug < b.slug ? -1 : 1));
+            }
+            currentPage = 1;
+            renderVehicles(currentVehicles);
+        }
+
+        function switchSearchTab(tab, btn) {
+            document.querySelectorAll('.search-tab').forEach(t => t.classList.remove('active'));
+            btn.classList.add('active');
+            filterVehicles();
+        }
+
+        function toggleCompare(slug) {
+            const vehicle = allVehicles.find(v => v.slug === slug);
+            if (!vehicle) return;
+            const index = compareList.findIndex(c => c.slug === slug);
+            if (index >= 0) {
+                compareList.splice(index, 1);
+            } else {
+                if (compareList.length >= 3) {
+                    alert('You can compare up to 3 vehicles at a time.');
+                    return;
+                }
+                compareList.push(vehicle);
+            }
+            updateCompareBar();
+            renderVehicles(currentVehicles);
+        }
+
+        function updateCompareBar() {
+            const bar = document.getElementById('compareBar');
+            const slots = document.getElementById('compareSlots');
+            const btnGo = document.getElementById('btnCompareGo');
+            if (compareList.length > 0) bar.classList.add('visible');
+            else bar.classList.remove('visible');
+
+            let slotsHTML = '';
+            for (let i = 0; i < 3; i++) {
+                if (compareList[i]) {
+                    slotsHTML += `
+                        <div class="compare-slot filled" onclick="toggleCompare('${compareList[i].slug}')">
+                            ${compareList[i].make} ${compareList[i].model}
+                            <button class="remove-compare" onclick="event.stopPropagation();toggleCompare('${compareList[i].slug}')">×</button>
+                        </div>`;
+                } else {
+                    slotsHTML += '<div class="compare-slot">+ Add</div>';
+                }
+            }
+            slots.innerHTML = slotsHTML;
+            btnGo.disabled = compareList.length < 2;
+            btnGo.textContent = compareList.length >= 2 ? `Compare (${compareList.length})` : 'Compare Now';
+        }
+
+        function openCompareModal() {
+            if (compareList.length < 2) return;
+            const modalOverlay = document.getElementById('compareModalOverlay');
+            const content = document.getElementById('compareContent');
+            let html = '<table class="compare-table"><thead><tr><th>Feature</th>';
+            compareList.forEach(v => html += `<th>${v.year} ${v.make} ${v.model}</th>`);
+            html += '</tr></thead><tbody>';
+            const rows = [
+                ['Price', v => '$' + v.price.toLocaleString()],
+                ['Mileage', v => v.mileage.toLocaleString() + ' mi'],
+                ['Body Style', v => v.body],
+                ['Drivetrain', v => v.drivetrain],
+                ['Fuel Type', v => v.fuel],
+                ['Color', v => v.color],
+                ['Dealer', v => v.dealer || 'NextKey Auto'],
+            ];
+            rows.forEach(([label, fn]) => {
+                html += '<tr><td><strong>' + label + '</strong></td>';
+                compareList.forEach(v => html += '<td>' + fn(v) + '</td>');
+                html += '</tr>';
+            });
+            html += '</tbody></table>';
+            content.innerHTML = html;
+            modalOverlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeCompareModal() {
+            document.getElementById('compareModalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function openContactModal(slug) {
+            selectedContactVehicleId = slug;
+            const vehicle = allVehicles.find(v => v.slug === slug);
+            if (!vehicle) return;
+            document.getElementById('message').value = `Hello, I'm interested in the ${vehicle.year} ${vehicle.make} ${vehicle.model} listed for $${vehicle.price.toLocaleString()}. Is this vehicle still available?`;
+            document.getElementById('firstName').value = '';
+            document.getElementById('lastName').value = '';
+            document.getElementById('email').value = '';
+            document.getElementById('phone').value = '';
+            document.getElementById('contactModalOverlay').classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeContactModal() {
+            document.getElementById('contactModalOverlay').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function handleContactSubmit(event) {
+            event.preventDefault();
+            const vehicle = allVehicles.find(v => v.slug === selectedContactVehicleId);
+            if (!vehicle) return;
+            const firstName = document.getElementById('firstName').value.trim();
+            const lastName = document.getElementById('lastName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const message = document.getElementById('message').value;
+
+            console.log('📧 Sending inquiry:', {
+                to: 'seller@nextkeyauto.com',
+                subject: `Inquiry about ${vehicle.year} ${vehicle.make} ${vehicle.model}`,
+                body: `From: ${firstName} ${lastName}\nEmail: ${email}\nPhone: ${phone}\n\n${message}`
+            });
+
+            alert(`✅ Your inquiry about the ${vehicle.year} ${vehicle.make} ${vehicle.model} has been sent to the seller.\n\nWe'll notify you at ${email}.`);
+            closeContactModal();
+        }
+
+        document.getElementById('contactModalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closeContactModal();
+        });
+        document.getElementById('compareModalOverlay').addEventListener('click', function(e) {
+            if (e.target === this) closeCompareModal();
+        });
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeContactModal();
+                closeCompareModal();
+            }
+        });
+
+        function toggleMobileMenu() {
+            const nav = document.querySelector('.nav-links');
+            if (nav.style.display === 'flex') {
+                nav.style.display = 'none';
+            } else {
+                nav.style.display = 'flex';
+                nav.style.flexDirection = 'column';
+                nav.style.position = 'absolute';
+                nav.style.top = '64px';
+                nav.style.left = '0';
+                nav.style.right = '0';
+                nav.style.background = '#fff';
+                nav.style.padding = '16px 20px';
+                nav.style.boxShadow = 'var(--shadow-lg)';
+                nav.style.gap = '8px';
+                nav.style.zIndex = '999';
+            }
+        }
+
+        loadVehicles();
+    </script>
+</body>
+</html>
